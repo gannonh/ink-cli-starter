@@ -126,15 +126,15 @@ Example:
 
 ```tsx
 import React from 'react';
-import { describe, it, expect } from 'vitest';
-import { render } from 'ink-testing-library';
+import {describe, it, expect} from 'vitest';
+import {render} from 'ink-testing-library';
 import App from '../app.js';
 
 describe('App component', () => {
-  it('greets unknown user', () => {
-    const { lastFrame } = render(<App name={undefined} />);
-    expect(lastFrame()).toContain('Hello, Stranger');
-  });
+	it('greets unknown user', () => {
+		const {lastFrame} = render(<App name={undefined} />);
+		expect(lastFrame()).toContain('Hello, Stranger');
+	});
 });
 ```
 
@@ -146,10 +146,10 @@ Example:
 
 ```ts
 describe('CLI E2E tests', () => {
-  it('greets user with a name when provided', async () => {
-    const { stdout } = await execPromise(`node ${cliPath} --name=Jane`);
-    expect(stdout).toContain('Hello, Jane');
-  });
+	it('greets user with a name when provided', async () => {
+		const {stdout} = await execPromise(`node ${cliPath} --name=Jane`);
+		expect(stdout).toContain('Hello, Jane');
+	});
 });
 ```
 
