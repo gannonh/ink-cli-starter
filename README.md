@@ -1,12 +1,11 @@
 # Ink CLI Starter
 
-Basic start project for Ink CLI apps with unit and e2e testing frameworks. Good setup for test driven development (TDD).
+Basic starter project for Ink CLI apps with unit and e2e testing frameworks (good setup for test driven development).
 
 ## Install
 
-
 ```bash
-$ npm install --global my-cli
+npm install --global my-cli
 ```
 
 ## CLI
@@ -71,6 +70,23 @@ npm run format
 - **Git:** Use Conventional Commits. Add `.DS_Store` and `orig-source/` to `.gitignore`.
 - **Dependencies:** Manage via `npm`. Use `chalk` v5 (ESM-only).
 
+## Continuous Integration
+
+This project uses GitHub Actions for continuous integration. The workflow runs automatically on push to the `main` branch and on pull requests.
+
+### CI Workflow
+
+The CI pipeline:
+
+- Runs on Ubuntu with Node.js versions 16.x, 18.x, and 20.x
+- Installs dependencies
+- Runs linting checks
+- Builds the project
+- Runs all tests (unit and E2E)
+- Uploads coverage reports to Codecov (for Node.js 20.x only)
+
+You can view the workflow configuration in `.github/workflows/ci.yml`.
+
 ## Testing
 
 This project uses Vitest for unit and E2E testing, enabling a smooth TDD workflow.
@@ -107,6 +123,7 @@ npm run test:e2e
 Unit tests are placed in `__tests__` directories adjacent to the code being tested. These tests focus on individual components and functions.
 
 Example:
+
 ```tsx
 import React from 'react';
 import { describe, it, expect } from 'vitest';
@@ -126,6 +143,7 @@ describe('App component', () => {
 E2E tests in the `test/e2e/` directory test the CLI as a whole, validating that commands work as expected from a user's perspective.
 
 Example:
+
 ```ts
 describe('CLI E2E tests', () => {
   it('greets user with a name when provided', async () => {
